@@ -1,6 +1,7 @@
 import { FaBookmark, FaEye, FaShareAlt } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
 import { GoBookmark } from "react-icons/go";
+import { Link } from "react-router";
 
 const NewsCard = ({ news }) => {
   const {
@@ -10,7 +11,7 @@ const NewsCard = ({ news }) => {
     rating,
     total_view,
     details,
-    tags,
+    id,
   } = news;
 
   return (
@@ -61,9 +62,9 @@ const NewsCard = ({ news }) => {
         {details.length > 200 ? (
           <>
             {details.slice(0, 200)}...
-            <button className="text-orange-600 font-semibold ml-1 hover:underline">
+            <Link to={`/news-details/${id}`} className="text-orange-600 font-semibold ml-1 hover:underline cursor-pointer">
               Read More
-            </button>
+            </Link>
           </>
         ) : (
           details
